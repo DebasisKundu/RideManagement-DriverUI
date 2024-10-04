@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "453204937836",
+    "project_id": "ridemanagement-b71c0",
+    "storage_bucket": "ridemanagement-b71c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453204937836:android:cab4904feb3b5ad2469c49",
+        "android_client_info": {
+          "package_name": "com.Abtrix.RmAndroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSqo2vFaMcvzkgBMMGe3GM3CB7F-cXwmQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

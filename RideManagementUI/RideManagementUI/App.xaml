@@ -1,0 +1,53 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RideManagementUI.App">
+    <Application.Resources>
+        <!-- Color Definitions -->
+        <Color x:Key="PrimaryColor">#007BFF</Color>
+        <Color x:Key="SecondaryColor">#6C757D</Color>
+        <Color x:Key="BackgroundColor">#F8F9FA</Color>
+        <Color x:Key="TextColor">#343A40</Color>
+        <Color x:Key="AccentColor">#28A745</Color>
+        <Color x:Key="ErrorColor">#DC3545</Color>
+
+        <!-- Styles for controls -->
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="25" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource TextColor}" />
+            <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource SecondaryColor}" />
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource BackgroundColor}" />
+        </Style>
+
+        <!-- Success Message Style -->
+        <Style x:Key="SuccessLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource AccentColor}" />
+            <Setter Property="FontSize" Value="Small" />
+        </Style>
+
+        <!-- Error Message Style -->
+        <Style x:Key="ErrorLabelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource ErrorColor}" />
+            <Setter Property="FontSize" Value="Small" />
+        </Style>
+    </Application.Resources>
+</Application>

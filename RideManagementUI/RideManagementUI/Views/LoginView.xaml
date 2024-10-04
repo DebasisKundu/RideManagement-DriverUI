@@ -1,0 +1,107 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RideManagementUI.Views.LoginView"   
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:viewModels="clr-namespace:RideManagementUI.ViewModels"
+             BackgroundColor="Transparent"
+             Title="Login">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{StaticResource BackgroundColor}" StatusBarStyle="DarkContent" />
+    </Page.Behaviors>
+
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="*,Auto" BackgroundColor="{StaticResource BackgroundColor}" Opacity="{Binding PageOpacity}">
+
+        <!-- Background Image -->
+        <!--<Image Source="riderbackground.webp"
+               Aspect="AspectFill"
+               Opacity="0.7"               
+               VerticalOptions="FillAndExpand"
+               HorizontalOptions="FillAndExpand"/>-->
+        <!-- Main Content Area -->
+        <StackLayout Padding="10" Spacing="25" VerticalOptions="StartAndExpand" Grid.Row="0">
+
+            <!-- Branding / Logo with Help Button -->
+            <Grid ColumnDefinitions="*,Auto">
+                <!-- Logo -->
+                <Image Margin="15,0,0,0" Source="dotnet_bot.png" HeightRequest="50" HorizontalOptions="Start"/>
+
+                <!-- Help Button -->
+                <Button Text="Help" 
+                        FontSize="Small"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource PrimaryColor}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Start"
+                        BorderColor="Transparent"
+                        Background="Transparent"
+                        />
+            </Grid>
+
+            <!-- Section for Phone Number Entry -->
+            <StackLayout x:Name="PhoneEntrySection" IsVisible="{Binding IsPhoneEntryVisible}">
+                <StackLayout Orientation="Horizontal">
+                    <!-- Country Code -->
+                    <Label Text="Enter your phone number to proceed" FontSize="Medium" TextColor="{StaticResource SecondaryColor}" VerticalOptions="Center"/>
+                </StackLayout>
+                <!-- Phone Number Input Field -->
+                <Frame CornerRadius="10" HasShadow="False" Padding="10"  Margin="0,20,0,0" BorderColor="Black">
+                    <StackLayout Orientation="Horizontal">
+                        <!-- Country Code -->
+                        <Label Text="+91" FontSize="Medium" VerticalOptions="Center"/>
+                        <Entry x:Name="PhoneNumberEntry" 
+                           Placeholder="0000000000"                            
+                           Keyboard="Numeric" 
+                           FontSize="Medium"                            
+                           HorizontalOptions="FillAndExpand"  
+                           BackgroundColor="Transparent"
+                           Text="{Binding PhoneNumber}"
+                           MaxLength="10"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Get OTP Button -->
+                <Button WidthRequest="200" Margin="0,50,0,0"
+                    Text="Get OTP" Command="{Binding SendOtpCommand}"
+                    />
+            </StackLayout>
+            <!-- Section for OTP Verification -->
+            <StackLayout x:Name="OtpVerificationSection" IsVisible="{Binding IsOtpVerificationVisible}">
+                <Label Text="Enter the OTP sent to your phone number" FontSize="Medium" TextColor="{StaticResource SecondaryColor}"/>
+                <Entry x:Name="OtpEntry" Placeholder="000000" Margin="0,20,0,0" Keyboard="Numeric" MaxLength="6" Text="{Binding OTP}"/>
+                <Button Text="Verify OTP" Margin="0,40,0,0" WidthRequest="200" Command="{Binding VerifyOtpCommand}" />
+                <Label x:Name="TimerLabel" FontSize="Small" TextColor="Gray" HorizontalOptions="End" IsVisible="{Binding IsTimerVisible}" Text="{Binding TimerText}"/>
+                <!-- Activity Indicator for Loading -->
+                <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Color="{StaticResource AccentColor}" />
+
+                <Button x:Name="ResendOtpButton" BackgroundColor="Transparent" Margin="0,20,0,0" BorderColor="Black" TextColor="Black" Text="Resend OTP" WidthRequest="110"
+                        IsVisible="{Binding IsResendOtpButtonVisible}" Command="{Binding ResendOtpCommand}" />
+            </StackLayout>
+
+        </StackLayout>
+
+        <!-- Footer Section -->
+        <StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Grid.Row="1" Padding="5">
+            <Label Text="By continuing, you agree to our" FontSize="Small" TextColor="#666" HorizontalTextAlignment="Center"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Terms and Conditions" FontSize="Small" TextColor="{StaticResource PrimaryColor}" HorizontalTextAlignment="Center" >
+                    <!--<Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTermsTapped" />
+                    </Label.GestureRecognizers>-->
+                </Label>
+                <Label Text=" and " FontSize="Small" TextColor="#000" />
+                <Label Text="Privacy Policy" FontSize="Small" TextColor="{StaticResource PrimaryColor}" HorizontalTextAlignment="Center" >
+                    <!--<Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrivacyTapped" />
+                    </Label.GestureRecognizers>-->
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

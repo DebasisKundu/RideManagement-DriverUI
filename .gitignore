@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/RideManagementUI/.vs
+/RideManagementUI/RideManagementUI/bin/Debug
+/RideManagementUI/RideManagementUI/obj
+/RideManagementUI/RideManagementUI/RideManagementUI.csproj.user
