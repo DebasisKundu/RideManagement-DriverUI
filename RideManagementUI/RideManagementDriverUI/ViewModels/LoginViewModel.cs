@@ -145,7 +145,7 @@ namespace RideManagementUI.ViewModels
             // Add your OTP verification logic here
             if (OTP == "123456") // Replace with actual OTP check
             {
-                await App.Current.MainPage.DisplayAlert("Success", "OTP Verified", "OK");
+                Application.Current.MainPage = new AppShell();
                 // Navigate to next page after successful OTP verification
             }
             else
