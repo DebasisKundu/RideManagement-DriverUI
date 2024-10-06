@@ -55,7 +55,8 @@
                         <!-- Country Code -->
                         <Label Text="+91" FontSize="Medium" VerticalOptions="Center"/>
                         <Entry x:Name="PhoneNumberEntry" 
-                           Placeholder="0000000000"                            
+                           Placeholder="0000000000"  
+                               PlaceholderColor="{StaticResource PlaceholderColor}"
                            Keyboard="Numeric" 
                            FontSize="Medium"                            
                            HorizontalOptions="FillAndExpand"  

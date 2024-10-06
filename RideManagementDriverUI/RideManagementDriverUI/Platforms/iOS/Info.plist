@@ -25,6 +25,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/appicon.appiconset</string>
+	<string>Assets.xcassets/appicon.appiconset</string>  
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Location is required for navigating and finding nearby rides.</string>
 </dict>
 </plist>

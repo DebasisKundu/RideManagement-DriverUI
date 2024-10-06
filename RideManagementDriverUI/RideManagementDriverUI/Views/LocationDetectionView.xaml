@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RideManagementDriverUI.Views.LocationDetectionView"
+             xmlns:viewModels="clr-namespace:RideManagementDriverUI.ViewModels"
+             xmlns:converters="clr-namespace:RideManagementDriverUI.Converters"
+             Title="LocationDetectionView">
+    <ContentPage.BindingContext>
+        <viewModels:LocationDetectionViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringNotNullOrEmptyConverter x:Key="StringNotNullOrEmptyConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="20">
+        <ActivityIndicator IsRunning="{Binding IsBusy}" />
+
+        <!-- Circular map image -->
+        <AbsoluteLayout HeightRequest="350" WidthRequest="350" HorizontalOptions="Center">
+            <Image Source="{Binding MapImageSource}"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                   AbsoluteLayout.LayoutFlags="All">
+                <Image.Clip>
+                    <EllipseGeometry Center="175,175" RadiusX="175" RadiusY="175" />
+                </Image.Clip>
+            </Image>
+
+            <!-- Pin overlay -->
+            <!--<Image Source="pin.png" 
+                   HeightRequest="30" WidthRequest="30" 
+                   AbsoluteLayout.LayoutBounds="0.5, 0.5, AutoSize, AutoSize"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" />-->
+        </AbsoluteLayout>
+
+        <Label Text="{Binding CityName}" 
+               FontSize="20" 
+               HorizontalOptions="Center" TextColor="{StaticResource TextColor}"
+               Margin="0, 20, 0, 0" />
+
+        <Button Text="Confirm Location" VerticalOptions="EndAndExpand"
+                Command="{Binding ConfirmLocationCommand}"
+                IsEnabled="{Binding CityName, Converter={StaticResource StringNotNullOrEmptyConverter}}"/>
+        <!-- Optional: You can use a converter to disable button if CityName is empty -->
+    </StackLayout>
+</ContentPage>

@@ -95,6 +95,7 @@
 	  <None Remove="Resources\Images\dashboard.png" />
 	  <None Remove="Resources\Images\earnings.png" />
 	  <None Remove="Resources\Images\notification.png" />
+	  <None Remove="Resources\Images\pin.png" />
 	  <None Remove="Resources\Images\ride.png" />
 	  <None Remove="Resources\Images\RiderBackground.webp" />
 	  <None Remove="Resources\Images\riderbackground_latest.jpg" />
@@ -109,6 +110,12 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\DashboardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LocationDetectionView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LocationPermissionView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginView.xaml">
